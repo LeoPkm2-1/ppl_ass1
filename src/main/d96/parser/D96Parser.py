@@ -11,20 +11,35 @@ else:
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\20")
-        buf.write("(\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\2")
-        buf.write("\3\2\3\2\3\2\5\2\23\n\2\3\2\3\2\3\2\3\3\3\3\3\4\3\4\3")
-        buf.write("\4\3\5\3\5\5\5\37\n\5\3\6\3\6\3\6\5\6$\n\6\3\6\3\6\3\6")
-        buf.write("\2\2\7\2\4\6\b\n\2\3\3\2\4\5\2%\2\f\3\2\2\2\4\27\3\2\2")
-        buf.write("\2\6\31\3\2\2\2\b\36\3\2\2\2\n \3\2\2\2\f\r\5\4\3\2\r")
-        buf.write("\16\7\3\2\2\16\17\7\b\2\2\17\20\7\t\2\2\20\22\7\n\2\2")
-        buf.write("\21\23\5\6\4\2\22\21\3\2\2\2\22\23\3\2\2\2\23\24\3\2\2")
-        buf.write("\2\24\25\7\13\2\2\25\26\7\2\2\3\26\3\3\2\2\2\27\30\t\2")
-        buf.write("\2\2\30\5\3\2\2\2\31\32\5\n\6\2\32\33\7\f\2\2\33\7\3\2")
-        buf.write("\2\2\34\37\5\n\6\2\35\37\7\7\2\2\36\34\3\2\2\2\36\35\3")
-        buf.write("\2\2\2\37\t\3\2\2\2 !\7\6\2\2!#\7\b\2\2\"$\5\b\5\2#\"")
-        buf.write("\3\2\2\2#$\3\2\2\2$%\3\2\2\2%&\7\t\2\2&\13\3\2\2\2\5\22")
-        buf.write("\36#")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\27")
+        buf.write("c\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
+        buf.write("\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16\t")
+        buf.write("\16\4\17\t\17\4\20\t\20\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3")
+        buf.write("\3\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\5\4\62\n\4\3\5")
+        buf.write("\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\5\6=\n\6\3\7\3\7\3\7")
+        buf.write("\3\b\3\b\3\b\3\t\3\t\3\n\3\n\5\nI\n\n\3\13\3\13\3\13\3")
+        buf.write("\13\3\13\3\13\5\13Q\n\13\3\f\3\f\3\r\3\r\3\16\3\16\3\16")
+        buf.write("\3\17\3\17\5\17\\\n\17\3\20\3\20\3\20\5\20a\n\20\3\20")
+        buf.write("\2\2\21\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36\2\3\4\2")
+        buf.write("\t\n\f\f\2Y\2 \3\2\2\2\4$\3\2\2\2\6\61\3\2\2\2\b\63\3")
+        buf.write("\2\2\2\n<\3\2\2\2\f>\3\2\2\2\16A\3\2\2\2\20D\3\2\2\2\22")
+        buf.write("H\3\2\2\2\24P\3\2\2\2\26R\3\2\2\2\30T\3\2\2\2\32V\3\2")
+        buf.write("\2\2\34[\3\2\2\2\36`\3\2\2\2 !\5\6\4\2!\"\5\4\3\2\"#\7")
+        buf.write("\2\2\3#\3\3\2\2\2$%\5\30\r\2%&\5\26\f\2&\'\7\3\2\2\'(")
+        buf.write("\7\17\2\2()\7\20\2\2)*\7\r\2\2*+\7\4\2\2+,\7\16\2\2,\5")
+        buf.write("\3\2\2\2-.\5\b\5\2./\5\6\4\2/\62\3\2\2\2\60\62\5\b\5\2")
+        buf.write("\61-\3\2\2\2\61\60\3\2\2\2\62\7\3\2\2\2\63\64\5\30\r\2")
+        buf.write("\64\65\5\32\16\2\65\66\5\n\6\2\66\67\7\r\2\2\678\7\5\2")
+        buf.write("\289\7\16\2\29\t\3\2\2\2:=\5\f\7\2;=\3\2\2\2<:\3\2\2\2")
+        buf.write("<;\3\2\2\2=\13\3\2\2\2>?\7\23\2\2?@\5\16\b\2@\r\3\2\2")
+        buf.write("\2AB\5\20\t\2BC\5\22\n\2C\17\3\2\2\2DE\5\32\16\2E\21\3")
+        buf.write("\2\2\2FI\5\24\13\2GI\3\2\2\2HF\3\2\2\2HG\3\2\2\2I\23\3")
+        buf.write("\2\2\2JK\7\22\2\2KL\5\20\t\2LM\5\24\13\2MQ\3\2\2\2NO\7")
+        buf.write("\22\2\2OQ\5\20\t\2PJ\3\2\2\2PN\3\2\2\2Q\25\3\2\2\2RS\7")
+        buf.write("\6\2\2S\27\3\2\2\2TU\7\7\2\2U\31\3\2\2\2VW\7\b\2\2WX\5")
+        buf.write("\34\17\2X\33\3\2\2\2Y\\\5\36\20\2Z\\\3\2\2\2[Y\3\2\2\2")
+        buf.write("[Z\3\2\2\2\\\35\3\2\2\2]^\t\2\2\2^a\5\36\20\2_a\t\2\2")
+        buf.write("\2`]\3\2\2\2`_\3\2\2\2a\37\3\2\2\2\b\61<HP[`")
         return buf.getvalue()
 
 
@@ -38,36 +53,60 @@ class D96Parser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'main'", "'int'", "'void'", "<INVALID>", 
-                     "<INVALID>", "'('", "')'", "'{'", "'}'", "';'" ]
+    literalNames = [ "<INVALID>", "'main'", "'programclassbody'", "'classbody'", 
+                     "'Program'", "'Class'", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "'_'", "'{'", "'}'", "'('", "')'", "';'", 
+                     "','", "':'" ]
 
-    symbolicNames = [ "<INVALID>", "<INVALID>", "INTTYPE", "VOIDTYPE", "ID", 
-                      "INTLIT", "LB", "RB", "LP", "RP", "SEMI", "WS", "ERROR_CHAR", 
-                      "UNCLOSE_STRING", "ILLEGAL_ESCAPE" ]
+    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "CHAR_SEQ", "CHAR", "NUM", 
+                      "NUM_SEQ", "UNDERCORE", "LB", "RB", "LP", "RP", "SM", 
+                      "CM", "COLON", "WS", "ERROR_CHAR", "UNCLOSE_STRING", 
+                      "ILLEGAL_ESCAPE" ]
 
     RULE_program = 0
-    RULE_mptype = 1
-    RULE_body = 2
-    RULE_exp = 3
-    RULE_funcall = 4
+    RULE_programclass = 1
+    RULE_classdecls = 2
+    RULE_classdecl = 3
+    RULE_superclasslist = 4
+    RULE_parentlist = 5
+    RULE_parentlst = 6
+    RULE_parent1 = 7
+    RULE_otherparents = 8
+    RULE_otherparent = 9
+    RULE_programkey = 10
+    RULE_classkey = 11
+    RULE_identifier = 12
+    RULE_tail_identifier = 13
+    RULE_tailiden = 14
 
-    ruleNames =  [ "program", "mptype", "body", "exp", "funcall" ]
+    ruleNames =  [ "program", "programclass", "classdecls", "classdecl", 
+                   "superclasslist", "parentlist", "parentlst", "parent1", 
+                   "otherparents", "otherparent", "programkey", "classkey", 
+                   "identifier", "tail_identifier", "tailiden" ]
 
     EOF = Token.EOF
     T__0=1
-    INTTYPE=2
-    VOIDTYPE=3
-    ID=4
-    INTLIT=5
-    LB=6
-    RB=7
-    LP=8
-    RP=9
-    SEMI=10
-    WS=11
-    ERROR_CHAR=12
-    UNCLOSE_STRING=13
-    ILLEGAL_ESCAPE=14
+    T__1=2
+    T__2=3
+    T__3=4
+    T__4=5
+    CHAR_SEQ=6
+    CHAR=7
+    NUM=8
+    NUM_SEQ=9
+    UNDERCORE=10
+    LB=11
+    RB=12
+    LP=13
+    RP=14
+    SM=15
+    CM=16
+    COLON=17
+    WS=18
+    ERROR_CHAR=19
+    UNCLOSE_STRING=20
+    ILLEGAL_ESCAPE=21
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -85,28 +124,16 @@ class D96Parser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def mptype(self):
-            return self.getTypedRuleContext(D96Parser.MptypeContext,0)
+        def classdecls(self):
+            return self.getTypedRuleContext(D96Parser.ClassdeclsContext,0)
 
 
-        def LB(self):
-            return self.getToken(D96Parser.LB, 0)
+        def programclass(self):
+            return self.getTypedRuleContext(D96Parser.ProgramclassContext,0)
 
-        def RB(self):
-            return self.getToken(D96Parser.RB, 0)
-
-        def LP(self):
-            return self.getToken(D96Parser.LP, 0)
-
-        def RP(self):
-            return self.getToken(D96Parser.RP, 0)
 
         def EOF(self):
             return self.getToken(D96Parser.EOF, 0)
-
-        def body(self):
-            return self.getTypedRuleContext(D96Parser.BodyContext,0)
-
 
         def getRuleIndex(self):
             return D96Parser.RULE_program
@@ -124,30 +151,13 @@ class D96Parser ( Parser ):
 
         localctx = D96Parser.ProgramContext(self, self._ctx, self.state)
         self.enterRule(localctx, 0, self.RULE_program)
-        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 10
-            self.mptype()
-            self.state = 11
-            self.match(D96Parser.T__0)
-            self.state = 12
-            self.match(D96Parser.LB)
-            self.state = 13
-            self.match(D96Parser.RB)
-            self.state = 14
-            self.match(D96Parser.LP)
-            self.state = 16
-            self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            if _la==D96Parser.ID:
-                self.state = 15
-                self.body()
-
-
-            self.state = 18
-            self.match(D96Parser.RP)
-            self.state = 19
+            self.state = 30
+            self.classdecls()
+            self.state = 31
+            self.programclass()
+            self.state = 32
             self.match(D96Parser.EOF)
         except RecognitionException as re:
             localctx.exception = re
@@ -158,45 +168,67 @@ class D96Parser ( Parser ):
         return localctx
 
 
-    class MptypeContext(ParserRuleContext):
+    class ProgramclassContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def INTTYPE(self):
-            return self.getToken(D96Parser.INTTYPE, 0)
+        def classkey(self):
+            return self.getTypedRuleContext(D96Parser.ClasskeyContext,0)
 
-        def VOIDTYPE(self):
-            return self.getToken(D96Parser.VOIDTYPE, 0)
+
+        def programkey(self):
+            return self.getTypedRuleContext(D96Parser.ProgramkeyContext,0)
+
+
+        def LP(self):
+            return self.getToken(D96Parser.LP, 0)
+
+        def RP(self):
+            return self.getToken(D96Parser.RP, 0)
+
+        def LB(self):
+            return self.getToken(D96Parser.LB, 0)
+
+        def RB(self):
+            return self.getToken(D96Parser.RB, 0)
 
         def getRuleIndex(self):
-            return D96Parser.RULE_mptype
+            return D96Parser.RULE_programclass
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitMptype" ):
-                return visitor.visitMptype(self)
+            if hasattr( visitor, "visitProgramclass" ):
+                return visitor.visitProgramclass(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def mptype(self):
+    def programclass(self):
 
-        localctx = D96Parser.MptypeContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 2, self.RULE_mptype)
-        self._la = 0 # Token type
+        localctx = D96Parser.ProgramclassContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 2, self.RULE_programclass)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 21
-            _la = self._input.LA(1)
-            if not(_la==D96Parser.INTTYPE or _la==D96Parser.VOIDTYPE):
-                self._errHandler.recoverInline(self)
-            else:
-                self._errHandler.reportMatch(self)
-                self.consume()
+            self.state = 34
+            self.classkey()
+            self.state = 35
+            self.programkey()
+            self.state = 36
+            self.match(D96Parser.T__0)
+            self.state = 37
+            self.match(D96Parser.LP)
+            self.state = 38
+            self.match(D96Parser.RP)
+            self.state = 39
+            self.match(D96Parser.LB)
+            self.state = 40
+            self.match(D96Parser.T__1)
+            self.state = 41
+            self.match(D96Parser.RB)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -206,42 +238,56 @@ class D96Parser ( Parser ):
         return localctx
 
 
-    class BodyContext(ParserRuleContext):
+    class ClassdeclsContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def funcall(self):
-            return self.getTypedRuleContext(D96Parser.FuncallContext,0)
+        def classdecl(self):
+            return self.getTypedRuleContext(D96Parser.ClassdeclContext,0)
 
 
-        def SEMI(self):
-            return self.getToken(D96Parser.SEMI, 0)
+        def classdecls(self):
+            return self.getTypedRuleContext(D96Parser.ClassdeclsContext,0)
+
 
         def getRuleIndex(self):
-            return D96Parser.RULE_body
+            return D96Parser.RULE_classdecls
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitBody" ):
-                return visitor.visitBody(self)
+            if hasattr( visitor, "visitClassdecls" ):
+                return visitor.visitClassdecls(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def body(self):
+    def classdecls(self):
 
-        localctx = D96Parser.BodyContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 4, self.RULE_body)
+        localctx = D96Parser.ClassdeclsContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 4, self.RULE_classdecls)
         try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 23
-            self.funcall()
-            self.state = 24
-            self.match(D96Parser.SEMI)
+            self.state = 47
+            self._errHandler.sync(self)
+            la_ = self._interp.adaptivePredict(self._input,0,self._ctx)
+            if la_ == 1:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 43
+                self.classdecl()
+                self.state = 44
+                self.classdecls()
+                pass
+
+            elif la_ == 2:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 46
+                self.classdecl()
+                pass
+
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -251,49 +297,109 @@ class D96Parser ( Parser ):
         return localctx
 
 
-    class ExpContext(ParserRuleContext):
+    class ClassdeclContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def funcall(self):
-            return self.getTypedRuleContext(D96Parser.FuncallContext,0)
+        def classkey(self):
+            return self.getTypedRuleContext(D96Parser.ClasskeyContext,0)
 
 
-        def INTLIT(self):
-            return self.getToken(D96Parser.INTLIT, 0)
+        def identifier(self):
+            return self.getTypedRuleContext(D96Parser.IdentifierContext,0)
+
+
+        def superclasslist(self):
+            return self.getTypedRuleContext(D96Parser.SuperclasslistContext,0)
+
+
+        def LB(self):
+            return self.getToken(D96Parser.LB, 0)
+
+        def RB(self):
+            return self.getToken(D96Parser.RB, 0)
 
         def getRuleIndex(self):
-            return D96Parser.RULE_exp
+            return D96Parser.RULE_classdecl
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitExp" ):
-                return visitor.visitExp(self)
+            if hasattr( visitor, "visitClassdecl" ):
+                return visitor.visitClassdecl(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def exp(self):
+    def classdecl(self):
 
-        localctx = D96Parser.ExpContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 6, self.RULE_exp)
+        localctx = D96Parser.ClassdeclContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 6, self.RULE_classdecl)
         try:
-            self.state = 28
+            self.enterOuterAlt(localctx, 1)
+            self.state = 49
+            self.classkey()
+            self.state = 50
+            self.identifier()
+            self.state = 51
+            self.superclasslist()
+            self.state = 52
+            self.match(D96Parser.LB)
+            self.state = 53
+            self.match(D96Parser.T__2)
+            self.state = 54
+            self.match(D96Parser.RB)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class SuperclasslistContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def parentlist(self):
+            return self.getTypedRuleContext(D96Parser.ParentlistContext,0)
+
+
+        def getRuleIndex(self):
+            return D96Parser.RULE_superclasslist
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitSuperclasslist" ):
+                return visitor.visitSuperclasslist(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def superclasslist(self):
+
+        localctx = D96Parser.SuperclasslistContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 8, self.RULE_superclasslist)
+        try:
+            self.state = 58
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [D96Parser.ID]:
+            if token in [D96Parser.COLON]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 26
-                self.funcall()
+                self.state = 56
+                self.parentlist()
                 pass
-            elif token in [D96Parser.INTLIT]:
+            elif token in [D96Parser.LB]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 27
-                self.match(D96Parser.INTLIT)
+
                 pass
             else:
                 raise NoViableAltException(self)
@@ -307,59 +413,492 @@ class D96Parser ( Parser ):
         return localctx
 
 
-    class FuncallContext(ParserRuleContext):
+    class ParentlistContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def ID(self):
-            return self.getToken(D96Parser.ID, 0)
+        def COLON(self):
+            return self.getToken(D96Parser.COLON, 0)
 
-        def LB(self):
-            return self.getToken(D96Parser.LB, 0)
-
-        def RB(self):
-            return self.getToken(D96Parser.RB, 0)
-
-        def exp(self):
-            return self.getTypedRuleContext(D96Parser.ExpContext,0)
+        def parentlst(self):
+            return self.getTypedRuleContext(D96Parser.ParentlstContext,0)
 
 
         def getRuleIndex(self):
-            return D96Parser.RULE_funcall
+            return D96Parser.RULE_parentlist
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitFuncall" ):
-                return visitor.visitFuncall(self)
+            if hasattr( visitor, "visitParentlist" ):
+                return visitor.visitParentlist(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def funcall(self):
+    def parentlist(self):
 
-        localctx = D96Parser.FuncallContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 8, self.RULE_funcall)
-        self._la = 0 # Token type
+        localctx = D96Parser.ParentlistContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 10, self.RULE_parentlist)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 30
-            self.match(D96Parser.ID)
-            self.state = 31
-            self.match(D96Parser.LB)
-            self.state = 33
+            self.state = 60
+            self.match(D96Parser.COLON)
+            self.state = 61
+            self.parentlst()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ParentlstContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def parent1(self):
+            return self.getTypedRuleContext(D96Parser.Parent1Context,0)
+
+
+        def otherparents(self):
+            return self.getTypedRuleContext(D96Parser.OtherparentsContext,0)
+
+
+        def getRuleIndex(self):
+            return D96Parser.RULE_parentlst
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitParentlst" ):
+                return visitor.visitParentlst(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def parentlst(self):
+
+        localctx = D96Parser.ParentlstContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 12, self.RULE_parentlst)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 63
+            self.parent1()
+            self.state = 64
+            self.otherparents()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class Parent1Context(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def identifier(self):
+            return self.getTypedRuleContext(D96Parser.IdentifierContext,0)
+
+
+        def getRuleIndex(self):
+            return D96Parser.RULE_parent1
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitParent1" ):
+                return visitor.visitParent1(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def parent1(self):
+
+        localctx = D96Parser.Parent1Context(self, self._ctx, self.state)
+        self.enterRule(localctx, 14, self.RULE_parent1)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 66
+            self.identifier()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class OtherparentsContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def otherparent(self):
+            return self.getTypedRuleContext(D96Parser.OtherparentContext,0)
+
+
+        def getRuleIndex(self):
+            return D96Parser.RULE_otherparents
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitOtherparents" ):
+                return visitor.visitOtherparents(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def otherparents(self):
+
+        localctx = D96Parser.OtherparentsContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 16, self.RULE_otherparents)
+        try:
+            self.state = 70
             self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            if _la==D96Parser.ID or _la==D96Parser.INTLIT:
-                self.state = 32
-                self.exp()
+            token = self._input.LA(1)
+            if token in [D96Parser.CM]:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 68
+                self.otherparent()
+                pass
+            elif token in [D96Parser.LB]:
+                self.enterOuterAlt(localctx, 2)
+
+                pass
+            else:
+                raise NoViableAltException(self)
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
 
 
-            self.state = 35
-            self.match(D96Parser.RB)
+    class OtherparentContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def CM(self):
+            return self.getToken(D96Parser.CM, 0)
+
+        def parent1(self):
+            return self.getTypedRuleContext(D96Parser.Parent1Context,0)
+
+
+        def otherparent(self):
+            return self.getTypedRuleContext(D96Parser.OtherparentContext,0)
+
+
+        def getRuleIndex(self):
+            return D96Parser.RULE_otherparent
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitOtherparent" ):
+                return visitor.visitOtherparent(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def otherparent(self):
+
+        localctx = D96Parser.OtherparentContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 18, self.RULE_otherparent)
+        try:
+            self.state = 78
+            self._errHandler.sync(self)
+            la_ = self._interp.adaptivePredict(self._input,3,self._ctx)
+            if la_ == 1:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 72
+                self.match(D96Parser.CM)
+                self.state = 73
+                self.parent1()
+                self.state = 74
+                self.otherparent()
+                pass
+
+            elif la_ == 2:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 76
+                self.match(D96Parser.CM)
+                self.state = 77
+                self.parent1()
+                pass
+
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ProgramkeyContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+
+        def getRuleIndex(self):
+            return D96Parser.RULE_programkey
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitProgramkey" ):
+                return visitor.visitProgramkey(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def programkey(self):
+
+        localctx = D96Parser.ProgramkeyContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 20, self.RULE_programkey)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 80
+            self.match(D96Parser.T__3)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ClasskeyContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+
+        def getRuleIndex(self):
+            return D96Parser.RULE_classkey
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitClasskey" ):
+                return visitor.visitClasskey(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def classkey(self):
+
+        localctx = D96Parser.ClasskeyContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 22, self.RULE_classkey)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 82
+            self.match(D96Parser.T__4)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class IdentifierContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def CHAR_SEQ(self):
+            return self.getToken(D96Parser.CHAR_SEQ, 0)
+
+        def tail_identifier(self):
+            return self.getTypedRuleContext(D96Parser.Tail_identifierContext,0)
+
+
+        def getRuleIndex(self):
+            return D96Parser.RULE_identifier
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIdentifier" ):
+                return visitor.visitIdentifier(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def identifier(self):
+
+        localctx = D96Parser.IdentifierContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 24, self.RULE_identifier)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 84
+            self.match(D96Parser.CHAR_SEQ)
+            self.state = 85
+            self.tail_identifier()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class Tail_identifierContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def tailiden(self):
+            return self.getTypedRuleContext(D96Parser.TailidenContext,0)
+
+
+        def getRuleIndex(self):
+            return D96Parser.RULE_tail_identifier
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitTail_identifier" ):
+                return visitor.visitTail_identifier(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def tail_identifier(self):
+
+        localctx = D96Parser.Tail_identifierContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 26, self.RULE_tail_identifier)
+        try:
+            self.state = 89
+            self._errHandler.sync(self)
+            token = self._input.LA(1)
+            if token in [D96Parser.CHAR, D96Parser.NUM, D96Parser.UNDERCORE]:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 87
+                self.tailiden()
+                pass
+            elif token in [D96Parser.LB, D96Parser.CM, D96Parser.COLON]:
+                self.enterOuterAlt(localctx, 2)
+
+                pass
+            else:
+                raise NoViableAltException(self)
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class TailidenContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def tailiden(self):
+            return self.getTypedRuleContext(D96Parser.TailidenContext,0)
+
+
+        def CHAR(self):
+            return self.getToken(D96Parser.CHAR, 0)
+
+        def NUM(self):
+            return self.getToken(D96Parser.NUM, 0)
+
+        def UNDERCORE(self):
+            return self.getToken(D96Parser.UNDERCORE, 0)
+
+        def getRuleIndex(self):
+            return D96Parser.RULE_tailiden
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitTailiden" ):
+                return visitor.visitTailiden(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def tailiden(self):
+
+        localctx = D96Parser.TailidenContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 28, self.RULE_tailiden)
+        self._la = 0 # Token type
+        try:
+            self.state = 94
+            self._errHandler.sync(self)
+            la_ = self._interp.adaptivePredict(self._input,5,self._ctx)
+            if la_ == 1:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 91
+                _la = self._input.LA(1)
+                if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << D96Parser.CHAR) | (1 << D96Parser.NUM) | (1 << D96Parser.UNDERCORE))) != 0)):
+                    self._errHandler.recoverInline(self)
+                else:
+                    self._errHandler.reportMatch(self)
+                    self.consume()
+                self.state = 92
+                self.tailiden()
+                pass
+
+            elif la_ == 2:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 93
+                _la = self._input.LA(1)
+                if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << D96Parser.CHAR) | (1 << D96Parser.NUM) | (1 << D96Parser.UNDERCORE))) != 0)):
+                    self._errHandler.recoverInline(self)
+                else:
+                    self._errHandler.reportMatch(self)
+                    self.consume()
+                pass
+
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
