@@ -67,6 +67,9 @@ fragment INT_PART: [1-9][0-9]* ('_' [0-9]+)*
 					| '0';
 fragment DECIMAL_PART: '.'[0-9]*;
 fragment EXP_PART:[eE](('+'|'-')?)[0-9]+;
+BOOL:'True'|'False';
+
+
 CHAR_SEQ:[A-Za-z]+;
 CHAR: [A-Za-z];
 NUM:[0-9];

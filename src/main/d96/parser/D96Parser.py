@@ -11,7 +11,7 @@ else:
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\33")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\34")
         buf.write("l\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
         buf.write("\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16\t")
         buf.write("\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
@@ -21,24 +21,24 @@ def serializedATN():
         buf.write("\3\f\3\f\5\fP\n\f\3\r\3\r\3\r\3\r\3\r\3\r\5\rX\n\r\3\16")
         buf.write("\3\16\3\17\3\17\3\20\3\20\3\20\3\21\3\21\5\21c\n\21\3")
         buf.write("\22\3\22\3\22\5\22h\n\22\3\23\3\23\3\23\2\2\24\2\4\6\b")
-        buf.write("\n\f\16\20\22\24\26\30\32\34\36 \"$\2\4\4\2\r\16\20\20")
+        buf.write("\n\f\16\20\22\24\26\30\32\34\36 \"$\2\4\4\2\16\17\21\21")
         buf.write("\3\2\7\n\2_\2&\3\2\2\2\4*\3\2\2\2\6\60\3\2\2\2\b\66\3")
         buf.write("\2\2\2\n8\3\2\2\2\f?\3\2\2\2\16C\3\2\2\2\20E\3\2\2\2\22")
         buf.write("H\3\2\2\2\24K\3\2\2\2\26O\3\2\2\2\30W\3\2\2\2\32Y\3\2")
         buf.write("\2\2\34[\3\2\2\2\36]\3\2\2\2 b\3\2\2\2\"g\3\2\2\2$i\3")
         buf.write("\2\2\2&\'\5\b\5\2\'(\5\4\3\2()\7\2\2\3)\3\3\2\2\2*+\5")
-        buf.write("\34\17\2+,\5\32\16\2,-\7\21\2\2-.\5\6\4\2./\7\22\2\2/")
+        buf.write("\34\17\2+,\5\32\16\2,-\7\22\2\2-.\5\6\4\2./\7\23\2\2/")
         buf.write("\5\3\2\2\2\60\61\7\3\2\2\61\7\3\2\2\2\62\63\5\n\6\2\63")
         buf.write("\64\5\b\5\2\64\67\3\2\2\2\65\67\5\n\6\2\66\62\3\2\2\2")
         buf.write("\66\65\3\2\2\2\67\t\3\2\2\289\5\34\17\29:\5\36\20\2:;")
-        buf.write("\5\16\b\2;<\7\21\2\2<=\5\f\7\2=>\7\22\2\2>\13\3\2\2\2")
+        buf.write("\5\16\b\2;<\7\22\2\2<=\5\f\7\2=>\7\23\2\2>\13\3\2\2\2")
         buf.write("?@\7\4\2\2@\r\3\2\2\2AD\5\20\t\2BD\3\2\2\2CA\3\2\2\2C")
-        buf.write("B\3\2\2\2D\17\3\2\2\2EF\7\27\2\2FG\5\22\n\2G\21\3\2\2")
+        buf.write("B\3\2\2\2D\17\3\2\2\2EF\7\30\2\2FG\5\22\n\2G\21\3\2\2")
         buf.write("\2HI\5\24\13\2IJ\5\26\f\2J\23\3\2\2\2KL\5\36\20\2L\25")
         buf.write("\3\2\2\2MP\5\30\r\2NP\3\2\2\2OM\3\2\2\2ON\3\2\2\2P\27")
-        buf.write("\3\2\2\2QR\7\26\2\2RS\5\24\13\2ST\5\30\r\2TX\3\2\2\2U")
-        buf.write("V\7\26\2\2VX\5\24\13\2WQ\3\2\2\2WU\3\2\2\2X\31\3\2\2\2")
-        buf.write("YZ\7\5\2\2Z\33\3\2\2\2[\\\7\6\2\2\\\35\3\2\2\2]^\7\f\2")
+        buf.write("\3\2\2\2QR\7\27\2\2RS\5\24\13\2ST\5\30\r\2TX\3\2\2\2U")
+        buf.write("V\7\27\2\2VX\5\24\13\2WQ\3\2\2\2WU\3\2\2\2X\31\3\2\2\2")
+        buf.write("YZ\7\5\2\2Z\33\3\2\2\2[\\\7\6\2\2\\\35\3\2\2\2]^\7\r\2")
         buf.write("\2^_\5 \21\2_\37\3\2\2\2`c\5\"\22\2ac\3\2\2\2b`\3\2\2")
         buf.write("\2ba\3\2\2\2c!\3\2\2\2de\t\2\2\2eh\5\"\22\2fh\t\2\2\2")
         buf.write("gd\3\2\2\2gf\3\2\2\2h#\3\2\2\2ij\t\3\2\2j%\3\2\2\2\b\66")
@@ -59,14 +59,14 @@ class D96Parser ( Parser ):
     literalNames = [ "<INVALID>", "'programclassbody'", "'classbody'", "'Program'", 
                      "'Class'", "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "'_'", "'{'", "'}'", "'('", "')'", "';'", 
-                     "','", "':'" ]
+                     "<INVALID>", "<INVALID>", "'_'", "'{'", "'}'", "'('", 
+                     "')'", "';'", "','", "':'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "INT_DEC", "INT_OCT", "INT_HEX", "INT_BIN", 
-                      "FLOAT", "CHAR_SEQ", "CHAR", "NUM", "NUM_SEQ", "UNDERCORE", 
-                      "LB", "RB", "LP", "RP", "SM", "CM", "COLON", "WS", 
-                      "ERROR_CHAR", "UNCLOSE_STRING", "ILLEGAL_ESCAPE" ]
+                      "FLOAT", "BOOL", "CHAR_SEQ", "CHAR", "NUM", "NUM_SEQ", 
+                      "UNDERCORE", "LB", "RB", "LP", "RP", "SM", "CM", "COLON", 
+                      "WS", "ERROR_CHAR", "UNCLOSE_STRING", "ILLEGAL_ESCAPE" ]
 
     RULE_program = 0
     RULE_programclass = 1
@@ -103,22 +103,23 @@ class D96Parser ( Parser ):
     INT_HEX=7
     INT_BIN=8
     FLOAT=9
-    CHAR_SEQ=10
-    CHAR=11
-    NUM=12
-    NUM_SEQ=13
-    UNDERCORE=14
-    LB=15
-    RB=16
-    LP=17
-    RP=18
-    SM=19
-    CM=20
-    COLON=21
-    WS=22
-    ERROR_CHAR=23
-    UNCLOSE_STRING=24
-    ILLEGAL_ESCAPE=25
+    BOOL=10
+    CHAR_SEQ=11
+    CHAR=12
+    NUM=13
+    NUM_SEQ=14
+    UNDERCORE=15
+    LB=16
+    RB=17
+    LP=18
+    RP=19
+    SM=20
+    CM=21
+    COLON=22
+    WS=23
+    ERROR_CHAR=24
+    UNCLOSE_STRING=25
+    ILLEGAL_ESCAPE=26
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)

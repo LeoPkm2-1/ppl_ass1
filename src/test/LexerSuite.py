@@ -85,6 +85,13 @@ class LexerSuite(unittest.TestCase):
     def test_float_7(self):
         """test float 7"""
         self.assertTrue(TestLexer.test("12_434_43.58439538e+32","1243443.58439538e+32,<EOF>",118))
+    # boolean
+    def test_bool_1(self):
+        """test bool 2"""
+        self.assertTrue(TestLexer.test("True","True,<EOF>",119))
+    def test_bool_2(self):
+        """test bool 2"""
+        self.assertTrue(TestLexer.test("False","False,<EOF>",120))
 
     # def test_lowercase_identifier(self):
     #     """test identifiers"""
