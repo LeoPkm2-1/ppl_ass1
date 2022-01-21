@@ -62,9 +62,29 @@ class LexerSuite(unittest.TestCase):
         """test oct number with undercore"""
         self.assertTrue(TestLexer.test("00","00,<EOF>",111))
 
-
-
-
+    #test_float
+        # test float normal
+    def test_float_1(self):
+        """test float 1"""
+        self.assertTrue(TestLexer.test("1.20043242","1.20043242,<EOF>",112))
+    def test_float_2(self):
+        """test float 1"""
+        self.assertTrue(TestLexer.test("1.0000000","1.0000000,<EOF>",113))
+    def test_float_3(self):
+        """test float 3"""
+        self.assertTrue(TestLexer.test("0.","0.,<EOF>",114))
+    def test_float_4(self):
+        """test float 4"""
+        self.assertTrue(TestLexer.test(".0e32",".0e32,<EOF>",115))
+    def test_float_5(self):
+        """test float 5"""
+        self.assertTrue(TestLexer.test(".e+32",".e+32,<EOF>",116))
+    def test_float_6(self):
+        """test float 6"""
+        self.assertTrue(TestLexer.test(".58439538e+32",".58439538e+32,<EOF>",117))
+    def test_float_7(self):
+        """test float 7"""
+        self.assertTrue(TestLexer.test("12_434_43.58439538e+32","1243443.58439538e+32,<EOF>",118))
 
     # def test_lowercase_identifier(self):
     #     """test identifiers"""

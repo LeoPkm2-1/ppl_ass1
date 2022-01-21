@@ -59,9 +59,14 @@ integer:  INT_DEC| INT_OCT| INT_HEX| INT_BIN;
 //token===================================================
 INT_DEC:[1-9][0-9]*('_'[0-9]+)* { self.text=self.text.replace("_","") }
 	|'0';
-INT_OCT:'0'[0-9]+('_'[0-7]+)* { self.text=self.text.replace("_","") };
+INT_OCT:'0'[0-7]+('_'[0-7]+)* { self.text=self.text.replace("_","") };
 INT_HEX:'0'[xX][0-9A-F]+('_'[A-F0-9]+)* { self.text=self.text.replace("_","") };
 INT_BIN:'0'[bB][0-1]+('_'[0-1]+)* { self.text=self.text.replace("_","") };
+FLOAT: (INT_PART DECIMAL_PART )|(INT_PART EXP_PART)|(DECIMAL_PART EXP_PART)|(INT_PART DECIMAL_PART EXP_PART) { self.text=self.text.replace("_","") };
+fragment INT_PART: [1-9][0-9]* ('_' [0-9]+)* 
+					| '0';
+fragment DECIMAL_PART: '.'[0-9]*;
+fragment EXP_PART:[eE](('+'|'-')?)[0-9]+;
 CHAR_SEQ:[A-Za-z]+;
 CHAR: [A-Za-z];
 NUM:[0-9];
