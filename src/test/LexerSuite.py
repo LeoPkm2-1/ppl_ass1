@@ -3,103 +3,115 @@ from TestUtils import TestLexer
 
 class LexerSuite(unittest.TestCase):
 
-    # test identifier
-    def test_iden_1(self):
-        """test id 1"""
-        self.assertTrue(TestLexer.test("hehe","hehe,<EOF>",101))
+# test integer:
+    # base 10
+        #    0
+    def test_int_0(self):
+        """test_int_0 """
+        input="0"
+        expect="0,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,101))
 
-    def test_iden_2(self):
-        """test id 1"""
-        self.assertTrue(TestLexer.test("AhiHi","AhiHi,<EOF>",102))
+        #   noundercore
+    def test_int_x10_no_undercore(self):
+        """test_int_x10_no_undercore"""
+        input="1214342"
+        expect="1214342,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,102))
 
-    # test integer:
+        # undercore
+    def test_int_x10_with_undercore(self):
+        """test_int_x10_with_undercore"""
+        input="123_54_5_9605305"
+        expect="1235459605305,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,103))
+    # base 8
+        #   noundercore
+    def test_int_x8_no_undercore(self):
+        """test_int_x8_no_undercore"""
+        input="0424543543"
+        expect="0424543543,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,104))
 
-        # base 10
-            # decimal base without underscore
-    def test_int_dec_without_under(self):
-        """test decimal number without undercore """
-        self.assertTrue(TestLexer.test("2342534534","2342534534,<EOF>",103))
+        # undercore
+    def test_int_x8_with_undercore(self):
+        """test_int_x8_no_undercore"""
+        input="04245_4_35_43"
+        expect="0424543543,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,105))
 
-            # decimal base with 0
-    def test_int_dec_0(self):
-        """test decimal number is zero """
-        self.assertTrue(TestLexer.test("0","0,<EOF>",104))
+    # base 16
+        #   noundercore and no a-f
+    def test_int_x16_no_undercore_no_letter1(self):
+        """test_int_x8_no_undercore"""
+        input="0x424543543"
+        expect="0x424543543,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,106))
 
-            # decimal base with undercored
-    def test_int_dec_with_under_1(self):
-        """test decimal number with undercore 1"""
-        self.assertTrue(TestLexer.test("1_323_4343_435","13234343435,<EOF>",105))
+    def test_int_x16_no_undercore_no_letter2(self):
+        """test_int_x8_no_undercore"""
+        input="0X424543543"
+        expect="0X424543543,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,107))
+
+        # no undercore have a-f
+    def test_int_x16_no_undercore_have_letter1(self):
+        """test_int_x16_no_undercore_have_letter"""
+        input="0xF534A53CD"
+        expect="0xF534A53CD,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,108))
+
+    def test_int_x16_no_undercore_have_letter2(self):
+        """test_int_x16_no_undercore_have_letter"""
+        input="0XF534A53CD"
+        expect="0XF534A53CD,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,109))
+        # undercore
+    def test_int_x16_with_undercore_no_letter1(self):
+        """test_int_x16_with_undercore_no_letter"""
+        input="0X4_2_454_354_3"
+        expect="0X424543543,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,110))
+
+    def test_int_x16_with_undercore_no_letter2(self):
+        """test_int_x16_with_undercore_no_letter"""
+        input="0x4_2_454_354_3"
+        expect="0x424543543,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,111))
+    def test_int_x16_with_undercore_with_letter1(self):
+        """test_int_x16_with_undercore_with_letter"""
+        input="0xF_534_A53C_D"
+        expect="0xF534A53CD,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,112))
+
+    def test_int_x16_with_undercore_with_letter2(self):
+        """test_int_x16_with_undercore_with_letter"""
+        input="0XF_534_A53C_D"
+        expect="0XF534A53CD,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,113))
     
-        # base 16:
-            # hex base with x and _           
-    def test_int_hex_with_under_1 (self):
-        """test hex number 1 """
-        self.assertTrue(TestLexer.test("0x342_42_53_5353","0x34242535353,<EOF>",106))
-            
-            # hex base with x and ABCDEF and _
-    def test_int_hex_with_under_2 (self):
-        """test hex number 2 """
-        self.assertTrue(TestLexer.test("0x342_AF_5D_5353","0x342AF5D5353,<EOF>",107))
-            
-            # hex base with X and _
-    def test_int_hex_with_under_3 (self):
-        """test hex number 1 """
-        self.assertTrue(TestLexer.test("0X342_42_53_5353","0X34242535353,<EOF>",106))
-            
-            # hex base with X and _ and ABCD
-    def test_int_hex_with_under_4 (self):
-        """test hex number 2 """
-        self.assertTrue(TestLexer.test("0X342_AF_5D_5353","0X342AF5D5353,<EOF>",109))
-            
-            # hex base with X and ABCD
-    def test_int_hex_without_under_1(self):
-        """test hex num 3 """
-        self.assertTrue(TestLexer.test("0X43253143ABD0","0X43253143ABD0,<EOF>",110))
-    
-        # base 8
-            # oct base with _
-    def test_int_oct_with_under_1(self):
-        """test oct number with undercore"""
-        self.assertTrue(TestLexer.test("00","00,<EOF>",111))
+    # base 2
+        # nounderore
+    def test_int_x2_no_undercore1(self):
+        """test_int_x2_no_undercore"""
+        input="0b01010101011101"
+        expect="0b01010101011101,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,114))
 
-    #test_float
-        # test float normal
-    def test_float_1(self):
-        """test float 1"""
-        self.assertTrue(TestLexer.test("1.20043242","1.20043242,<EOF>",112))
-    def test_float_2(self):
-        """test float 1"""
-        self.assertTrue(TestLexer.test("1.0000000","1.0000000,<EOF>",113))
-    def test_float_3(self):
-        """test float 3"""
-        self.assertTrue(TestLexer.test("0.","0.,<EOF>",114))
-    def test_float_4(self):
-        """test float 4"""
-        self.assertTrue(TestLexer.test(".0e32",".0e32,<EOF>",115))
-    def test_float_5(self):
-        """test float 5"""
-        self.assertTrue(TestLexer.test(".e+32",".e+32,<EOF>",116))
-    def test_float_6(self):
-        """test float 6"""
-        self.assertTrue(TestLexer.test(".58439538e+32",".58439538e+32,<EOF>",117))
-    def test_float_7(self):
-        """test float 7"""
-        self.assertTrue(TestLexer.test("12_434_43.58439538e+32","1243443.58439538e+32,<EOF>",118))
-    # boolean
-    def test_bool_1(self):
-        """test bool 2"""
-        self.assertTrue(TestLexer.test("True","True,<EOF>",119))
-    def test_bool_2(self):
-        """test bool 2"""
-        self.assertTrue(TestLexer.test("False","False,<EOF>",120))
+    def test_int_x2_no_undercore2(self):
+        """test_int_x2_no_undercore"""
+        input="0B01010101011101"
+        expect="0B01010101011101,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,115))
+        # withunderscore
+    def test_int_x2_with_undercore1(self):
+        """test_int_x2_with_undercore"""
+        input="0b0_101_010101_1_101"
+        expect="0b01010101011101,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,116))
 
-    # def test_lowercase_identifier(self):
-    #     """test identifiers"""
-    #     self.assertTrue(TestLexer.test("abc","abc,<EOF>",101))
-    # def test_lower_upper_id(self):
-    #     self.assertTrue(TestLexer.test("aCBbdc","aCBbdc,<EOF>",102))
-    # def test_mixed_id(self):
-    #     self.assertTrue(TestLexer.test("aAsVN3","aAsVN,3,<EOF>",103))
-    # def test_integer(self):
-    #     """test integers"""
-    #     self.assertTrue(TestLexer.test("123a123","123,a,123,<EOF>",104))
+    def test_int_x2_with_undercore2(self):
+        """test_int_x2_with_undercore"""
+        input="0B0_101_010101_1_101"
+        expect="0B01010101011101,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,117))

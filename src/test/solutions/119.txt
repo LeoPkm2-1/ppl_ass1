@@ -1,1 +1,1 @@
-True,<EOF>
+T,r,u,e,<EOF>
