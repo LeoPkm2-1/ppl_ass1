@@ -1,1 +1,1 @@
-abc    afas^&,<EOF>
+1e+424,<EOF>

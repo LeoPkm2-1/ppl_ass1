@@ -18,7 +18,7 @@ program: classdecls  EOF;
 classdecls:INTEGER_LITERAL_X10;
 
 // token Literals
-	//integer
+	//integer Literals
 		// INTEGER_LITERAL: INTEGER_LITERAL_X10 {self.text=self.text.replace("_","")}
 		// 	|INTEGER_LITERAL_X16 {self.text=self.text.replace("_","")}
 		// 	|INTEGER_LITERAL_X8 {self.text=self.text.replace("_","")}
@@ -47,16 +47,42 @@ classdecls:INTEGER_LITERAL_X10;
 		fragment X16DIGIT:[0-9A-F];
 		fragment X8DIGIT:[0-7];
 		fragment X2DIGIT:[0-1];
-	//float
+
+	//float Literals
 		FLOAT_LITERAL
-			: FLOAT_INT_COMPO FLOAT_DECIMAL_COMPO
-			| FLOAT_INT_COMPO FLOAT_EXPO_COMPO
-			|
+			: FLOAT_INT_COMPO FLOAT_DECIMAL_COMPO { self.text=self.text.replace("_","") }
+			| FLOAT_INT_COMPO FLOAT_EXPO_COMPO { self.text=self.text.replace("_","") }
+			| FLOAT_DECIMAL_COMPO FLOAT_EXPO_COMPO
+			| FLOAT_INT_COMPO FLOAT_DECIMAL_COMPO FLOAT_EXPO_COMPO { self.text=self.text.replace("_","") };
 			
-			FLOAT_INT_COMPO FLOAT_DECIMAL_COMPO FLOAT_EXPO_COMPO;
 		fragment FLOAT_INT_COMPO: [1-9] NUMBERDIGIT* ('_'NUMBERDIGIT+)* |'0' ;
 		fragment FLOAT_DECIMAL_COMPO: '.'NUMBERDIGIT*;
 		fragment FLOAT_EXPO_COMPO: [eE] [-+]? NUMBERDIGIT+;
+
+	//boolean Literals
+		BOOLEAN_LITERAL
+			: 'True'
+			| 'False';
+
+	// string Literals
+		STRING_LITERAL
+			:'"' CHARACTER* '"'
+			{
+				inputstr=str(self.text)
+				self.text=inputstr[1:-1]
+			}
+			;
+
+		fragment CHARACTER:  ~[\b\t\n\f\r"'\\]|ESCAPE_CHAR;
+		// fragment ESCAPE_CHAR: ('\\b'|'\\f'|'\\r'|'\\n'|'\\t'|'\\\''|'\\\\');
+		fragment ESCAPE_CHAR: '\\' [btnfr"'\\] ;
+		// fragment ESCAPE_CHAR_ILEGAL: '\\'~[bfrnt"'\\]  ~'\\' ;
+		fragment ESCAPE_CHAR_ILEGAL: '\\' ~[btnfr"'\\] | ~'\\' ;
+			// 		fragment
+			// ESC : '\\"' | '\\\\' ; // 2-char sequences \" and \\
+	// array Literals
+
+
 WS: [ \t\r\n]+ -> skip; // skip spaces, tabs, newlines
 
 ERROR_CHAR: .;

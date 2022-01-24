@@ -11,7 +11,7 @@ else:
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\13")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\r")
         buf.write("\f\4\2\t\2\4\3\t\3\3\2\3\2\3\2\3\3\3\3\3\3\2\2\4\2\4\2")
         buf.write("\2\2\t\2\6\3\2\2\2\4\t\3\2\2\2\6\7\5\4\3\2\7\b\7\2\2\3")
         buf.write("\b\3\3\2\2\2\t\n\7\3\2\2\n\5\3\2\2\2\2")
@@ -32,7 +32,8 @@ class D96Parser ( Parser ):
 
     symbolicNames = [ "<INVALID>", "INTEGER_LITERAL_X10", "INTEGER_LITERAL_X16", 
                       "INTEGER_LITERAL_X8", "INTEGER_LITERAL_X2", "FLOAT_LITERAL", 
-                      "WS", "ERROR_CHAR", "UNCLOSE_STRING", "ILLEGAL_ESCAPE" ]
+                      "BOOLEAN_LITERAL", "STRING_LITERAL", "WS", "ERROR_CHAR", 
+                      "UNCLOSE_STRING", "ILLEGAL_ESCAPE" ]
 
     RULE_program = 0
     RULE_classdecls = 1
@@ -45,10 +46,12 @@ class D96Parser ( Parser ):
     INTEGER_LITERAL_X8=3
     INTEGER_LITERAL_X2=4
     FLOAT_LITERAL=5
-    WS=6
-    ERROR_CHAR=7
-    UNCLOSE_STRING=8
-    ILLEGAL_ESCAPE=9
+    BOOLEAN_LITERAL=6
+    STRING_LITERAL=7
+    WS=8
+    ERROR_CHAR=9
+    UNCLOSE_STRING=10
+    ILLEGAL_ESCAPE=11
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
