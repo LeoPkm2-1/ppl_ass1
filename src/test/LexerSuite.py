@@ -277,9 +277,22 @@ class LexerSuite(unittest.TestCase):
     #     expect="He asked me: '\"Where is John?'\",<EOF>"        
     #     self.assertTrue(TestLexer.test(input,expect,143))
 
+    # def test_string_doublequote(self):
+    #     """test_string_doublequote"""
+    #     input= "\"ahihi xin chao\""
+        
+    #     expect="ahihi xin chao,<EOF>"        
+    #     self.assertTrue(TestLexer.test(input,expect,143))
+
     def test_string_doublequote(self):
         """test_string_doublequote"""
-        input= """He asked me: \'"Where is John?\'" """
-        
-        expect="He asked me: '\"Where is John?'\",<EOF>"        
+        input="\"He asked me: '\"Where is John?'\"\""
+        expect="He asked me: '\"Where is John?'\",<EOF>"
         self.assertTrue(TestLexer.test(input,expect,143))
+    
+    def test_string_newline(self):
+        """test_string_newline"""
+        input="\"He asked me: '\"Where is John?'\" and end with newline \\n\""
+        expect="He asked me: '\"Where is John?'\" and end with newline \\n,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,144))
+

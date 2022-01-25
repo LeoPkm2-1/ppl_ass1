@@ -62,24 +62,60 @@ classdecls:INTEGER_LITERAL_X10;
 	//boolean Literals
 		BOOLEAN_LITERAL
 			: 'True'
-			| 'False';
+			| 'False'
+			;
 
 	// string Literals
 		STRING_LITERAL
-			:'"' CHARACTER* '"'
+			: '"' CHARACTER* '"'
 			{
 				inputstr=str(self.text)
 				self.text=inputstr[1:-1]
 			}
 			;
+		
+		fragment CHARACTER
+			: ~[\b\f\r\n\t"'\\]|ESCAPE_CHAR|DOUBLE_QUOTE_IN_STRING
+			;
 
-		fragment CHARACTER:  ~[\b\t\n\f\r"'\\]|ESCAPE_CHAR;
-		// fragment ESCAPE_CHAR: ('\\b'|'\\f'|'\\r'|'\\n'|'\\t'|'\\\''|'\\\\');
-		fragment ESCAPE_CHAR: '\\' [btnfr"'\\] ;
-		// fragment ESCAPE_CHAR_ILEGAL: '\\'~[bfrnt"'\\]  ~'\\' ;
-		fragment ESCAPE_CHAR_ILEGAL: '\\' ~[btnfr"'\\] | ~'\\' ;
-			// 		fragment
-			// ESC : '\\"' | '\\\\' ; // 2-char sequences \" and \\
+		fragment ESCAPE_CHAR
+			: '\\' [bfrnt'\\]
+			;
+
+		fragment DOUBLE_QUOTE_IN_STRING
+			:'\'"'
+			;
+		
+		fragment ESCAPE_CHAR_ILEGAL
+			: '\\' ~[bfrnt'\\] 
+			| ~'\\'
+			;
+
+		
+
+	//==========================================================================================================================================
+															// STRING_LITERAL
+															// 	:'"' CHARACTER* '"'
+															// 	{
+															// 		inputstr=str(self.text)
+															// 		self.text=inputstr[1:-1]
+															// 	}
+															// 	;
+
+															// fragment CHARACTER
+															// :  ~[\b\t\n\f\r"'\\]
+															// |ESCAPE_CHAR
+															// ;
+															// // fragment ESCAPE_CHAR: ('\\b'|'\\f'|'\\r'|'\\n'|'\\t'|'\\\''|'\\\\');
+															
+															// fragment ESCAPE_CHAR: '\\' [btnfr'\\]|'\'"' ;
+															// // fragment ESCAPE_CHAR_ILEGAL: '\\'~[bfrnt"'\\]  ~'\\' ;
+															// fragment ESCAPE_CHAR_ILEGAL: '\\' ~[btnfr'\\] | ~'\\' ;
+															// 	// 		fragment
+															// 	// ESC : '\\"' | '\\\\' ; // 2-char sequences \" and \\
+
+	//==========================================================================================================================================
+
 	// array Literals
 
 
