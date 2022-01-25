@@ -15,7 +15,58 @@ options {
 // program = classdecls (nhieu khai bao class) + programclass (class program)
 program: classdecls  EOF;
 
-classdecls:INTEGER_LITERAL_X10;
+classdecls
+	: classdecl classdecls
+	| classdecl;
+
+// classdecl
+// 	: CLASS CLASSNAME (COLON CLASSNAME)? LB classbody  RB;
+
+classdecl
+	: CLASS CLASSNAME parentclassname LB classbody  RB;
+
+parentclassname
+	:(COLON CLASSNAME)| ;
+
+
+classbody
+	: classelements| ;
+
+classelements
+	: classelement classelements| classelement;
+
+
+classelement
+	:attributedecl|methoddecl;
+
+// attributedecl
+// 	:(VAL|VAR) (IDENTIFIER|STATIC_IDENTIFIER)+;
+
+attributedecl
+	:(VAL|VAR) varlist COLON typ values;
+
+values
+	:vals| ;
+
+
+varlist
+	: var_item CM varlist 
+	|var_item;
+
+var_item
+	: IDENTIFIER
+	|STATIC_IDENTIFIER;
+
+typ
+	: BOOLEAN_TYP
+	| INT_TYP
+	| FLOAT_TYP
+	;
+
+
+
+
+
 
 // token Literals
 	//integer Literals
@@ -117,10 +168,60 @@ classdecls:INTEGER_LITERAL_X10;
 	//==========================================================================================================================================
 
 	// array Literals
+	// index_array_literal:Array LP listarrelement LB ;
+
+
+	Array:'Array';
+	CLASS:'Class';
+	LP:'(';
+	RP:')';
+	LB:'{';
+	RB:'}';
+	SM:';';
+	CM:',';
+	COLON:':';
+	VAL:'Val';
+	VAR:'Var';
+	BOOLEAN_TYP:'Boolean';
+	INT_TYP:'Int';
+	FLOAT_TYP:'Float';
+
+	IDENTIFIER:[A-Za-z_]+ [A-Za-z_0-9]* ;
+	CLASSNAME:[A-Za-z_]+ [A-Za-z_0-9]* ;
+	STATIC_IDENTIFIER: '$' [A-Za-z_]+ [A-Za-z_0-9]* ;
+
 
 
 WS: [ \t\r\n]+ -> skip; // skip spaces, tabs, newlines
 
-ERROR_CHAR: .;
-UNCLOSE_STRING: .;
-ILLEGAL_ESCAPE: .;
+
+UNCLOSE_STRING
+	: '"' CHARACTER* END_A_LINE_SIGN
+	{
+		unclose_string = str(self.text)
+		end_sign=['\b', '\t', '\n', '\f', '\r', '"', "'", '\\']
+		i=len(a)
+		if unclose_string[i-1] in end_sign:
+			raise UncloseString(unclose_string[1:-1])
+		else:
+			raise UncloseString(unclose_string[1:])
+	}
+	;
+
+fragment END_A_LINE_SIGN
+	: [\b\t\n\f\r"'\\] | EOF
+	;
+
+ILLEGAL_ESCAPE
+	: '"' CHARACTER* ESCAPE_CHAR_ILEGAL
+	{
+		ilegal = str(self.text)
+		raise IllegalEscape(ilegal[1:])
+	}
+	;
+
+ERROR_CHAR: .
+	{
+		raise ErrorToken(self.text)
+	}
+	;

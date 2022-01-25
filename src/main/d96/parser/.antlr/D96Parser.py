@@ -32,8 +32,8 @@ class D96Parser ( Parser ):
 
     symbolicNames = [ "<INVALID>", "INTEGER_LITERAL_X10", "INTEGER_LITERAL_X16", 
                       "INTEGER_LITERAL_X8", "INTEGER_LITERAL_X2", "FLOAT_LITERAL", 
-                      "BOOLEAN_LITERAL", "STRING_LITERAL", "WS", "ERROR_CHAR", 
-                      "UNCLOSE_STRING", "ILLEGAL_ESCAPE" ]
+                      "BOOLEAN_LITERAL", "STRING_LITERAL", "WS", "UNCLOSE_STRING", 
+                      "ILLEGAL_ESCAPE", "ERROR_CHAR" ]
 
     RULE_program = 0
     RULE_classdecls = 1
@@ -49,9 +49,9 @@ class D96Parser ( Parser ):
     BOOLEAN_LITERAL=6
     STRING_LITERAL=7
     WS=8
-    ERROR_CHAR=9
-    UNCLOSE_STRING=10
-    ILLEGAL_ESCAPE=11
+    UNCLOSE_STRING=9
+    ILLEGAL_ESCAPE=10
+    ERROR_CHAR=11
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)

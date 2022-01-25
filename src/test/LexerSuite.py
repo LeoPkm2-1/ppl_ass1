@@ -295,4 +295,6 @@ class LexerSuite(unittest.TestCase):
         input="\"He asked me: '\"Where is John?'\" and end with newline \\n\""
         expect="He asked me: '\"Where is John?'\" and end with newline \\n,<EOF>"
         self.assertTrue(TestLexer.test(input,expect,144))
+    
+    
 
