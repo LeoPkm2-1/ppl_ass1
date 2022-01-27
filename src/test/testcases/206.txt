@@ -1,5 +1,5 @@
 
             Class c{
-                Var $fds,$b:Int;
+                Val c,f,e,$err:String;
             }
         

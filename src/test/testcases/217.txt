@@ -1,0 +1,8 @@
+
+            Class c{
+                Var a,b,c: Array[Int,5]=Array(12,0X43,a,$fas);
+                Var a,b,c: Array[Boolean,5]=Array(True,False,True);
+                Var a,b,c: Array[Float,5]=Array(1.0,0.,1e342,1.432,1.42e+424,afsa3);
+                Var a,b,c: Array[String,5]=Array("fdsa fsjlk ","fdsaj",afsd,$fsad);
+            }
+        

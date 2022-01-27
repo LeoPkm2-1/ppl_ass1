@@ -1,0 +1,5 @@
+
+            Class c{
+                Var a,s42,_543:String="ahihi xin chao","","132","Flo;t","True",a,$a_S21;
+            }
+        

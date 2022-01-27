@@ -1,0 +1,8 @@
+
+            Class c{
+                ## 
+                noting ok ahihi
+                
+                ##
+            }
+        

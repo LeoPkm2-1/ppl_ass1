@@ -1,1 +1,8 @@
-int main() {}
+
+            Class c{
+                Var a,b,c: Array[Int,5];
+                Var a,b,c: Array[Boolean,5];
+                Var a,b,c: Array[Float,5];
+                Var a,b,c: Array[String,5];
+            }
+        

@@ -1,0 +1,5 @@
+
+            Class c{
+                Var a,s42,_543:Boolean=True,False,True;
+            }
+        

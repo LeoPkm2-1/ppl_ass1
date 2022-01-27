@@ -1,0 +1,5 @@
+
+            Class c{
+                Var $fds,$b,c,f,e,$err:String;
+            }
+        

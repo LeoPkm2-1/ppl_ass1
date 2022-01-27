@@ -1,5 +1,5 @@
 
             Class c{
-                Var $fds,$b:Int;
+                Var a,s42,_543:Int=43,54,a;
             }
         
