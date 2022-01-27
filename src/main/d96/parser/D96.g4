@@ -51,7 +51,7 @@ var_typ_and_inital: primitive_typ_and_inital| array_typ_and_inital;// array_typ_
 
 array_typ_and_inital:arr_index_inital|arr_multi_dimension_inital;
 
-arr_multi_dimension_inital:;
+arr_multi_dimension_inital:ARRAY LP(arr_multi_dimension_inital|) RP;
 multi_dimension_arr_typ: ARRAY LSB (multi_dimension_arr_typ|index_arr_typ) CM integer_literal RSB;
 
 arr_index_inital
@@ -59,7 +59,7 @@ arr_index_inital
 	|arr_index_bool_list_inital
 	|arr_index_float_list_inital
 	|arr_index_string_list_inital;
-	
+
 index_arr_typ
 	:index_arr_int_typ
 	|index_arr_bool_typ
