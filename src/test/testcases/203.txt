@@ -1,3 +1,1 @@
-Class Program { 
-           programclassbody
-        } 
+Class ahi123_fsd {}

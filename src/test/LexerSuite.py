@@ -296,5 +296,19 @@ class LexerSuite(unittest.TestCase):
         expect="He asked me: '\"Where is John?'\" and end with newline \\n,<EOF>"
         self.assertTrue(TestLexer.test(input,expect,144))
     
+
+
+    # TEST IDENTIFIER:
+    def test_indentifier_1(self):
+        """test identifier"""
+        input="ahihi"
+        expect="ahihi,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,145))
+
+
+
+
+    
+    
     
 

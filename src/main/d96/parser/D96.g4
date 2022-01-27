@@ -22,11 +22,10 @@ classdecls
 // classdecl
 // 	: CLASS CLASSNAME (COLON CLASSNAME)? LB classbody  RB;
 
-classdecl
-	: CLASS CLASSNAME parentclassname LB classbody  RB;
+classdecl: CLASS CLASSNAME parentclassname LB classbody RB;
 
 parentclassname
-	:(COLON CLASSNAME)| ;
+	:COLON CLASSNAME| ;
 
 
 classbody
@@ -45,7 +44,8 @@ classelement
 // 	:(VAL|VAR) (IDENTIFIER|STATIC_IDENTIFIER)+;
 
 attributedecl
-	:(VAL|VAR) varlist COLON typ values SM;
+	:VAL varlist COLON typ values SM
+	|VAR varlist COLON typ values SM;
 
 // value :'= list of values | empyt'
 values
@@ -188,9 +188,8 @@ integer_literal
 	// array Literals
 	// index_array_literal:Array LP listarrelement LB ;
 
-
-	Array:'Array';
 	CLASS:'Class';
+	Array:'Array';
 	LP:'(';
 	RP:')';
 	LB:'{';
@@ -207,8 +206,9 @@ integer_literal
 	
 
 	IDENTIFIER:[A-Za-z_]+ [A-Za-z_0-9]* ;
-	CLASSNAME:[A-Za-z_]+ [A-Za-z_0-9]* ;
-	STATIC_IDENTIFIER: '$' [A-Za-z_]+ [A-Za-z_0-9]* ;
+	CLASSNAME:([A-Za-z]|'_')+ ([A-Za-z]|'_'|[0-9])* ;
+	fragment DOLAR_SIGN:'$';
+	STATIC_IDENTIFIER: DOLAR_SIGN [A-Za-z_]+ [A-Za-z_0-9]* ;
 
 
 

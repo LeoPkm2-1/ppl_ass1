@@ -29,4 +29,18 @@ class ParserSuite(unittest.TestCase):
     #     } """
     #     expect = "successful"
     #     self.assertTrue(TestParser.test(input,expect,203))
-    pass
+
+
+    def test_program_class_dec_1(self):
+        """test_program_class_dec"""
+        input = "Class ahi123_fsd {}"
+        expect = r"successful"
+        self.assertTrue(TestParser.test(input,expect,203))
+
+    def test_var_decl(self):
+        """test vardecl without value"""
+        input="""
+        var a: integer;
+        """
+        expect="successful"
+        self.assertTrue(TestParser.test(input,expect,204))
