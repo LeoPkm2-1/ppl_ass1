@@ -30,17 +30,23 @@ class ParserSuite(unittest.TestCase):
     #     expect = "successful"
     #     self.assertTrue(TestParser.test(input,expect,203))
 
+    def test_program_class_empty_body(self):
+        """test_program_class_empty_body"""
+        input = """Class drogram{}"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(input,expect,202))
 
-    def test_program_class_dec_1(self):
-        """test_program_class_dec"""
-        input = "Class ahi123_fsd {}"
-        expect = r"successful"
-        self.assertTrue(TestParser.test(input,expect,203))
 
-    def test_var_decl(self):
-        """test vardecl without value"""
+    def test_class_have_vardecl_1(self):
+        """test_temp"""
         input="""
-        var a: integer;
+        Class abc{
+            Var a:Int;
+        }
+
+        Class c{
+            Var fds,b,s,fsd: Float;
+        }
         """
         expect="successful"
-        self.assertTrue(TestParser.test(input,expect,204))
+        self.assertTrue(TestParser.test(input,expect,203))

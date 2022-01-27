@@ -1,3 +1,9 @@
 
-        var a: integer;
+        Class abc{
+            Var a:Int;
+        }
+
+        Class c{
+            Var fds,b,s,fsd: Float;
+        }
         
