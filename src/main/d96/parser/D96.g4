@@ -33,21 +33,23 @@ classbody
 	: classelements| ;
 
 classelements
-	: classelement classelements| classelement;
+	: classelement classelements
+	| classelement;
 
 
 classelement
-	:attributedecl|methoddecl;
+	:attributedecl;
+	// |methoddecl;
 
 // attributedecl
 // 	:(VAL|VAR) (IDENTIFIER|STATIC_IDENTIFIER)+;
 
 attributedecl
-	:(VAL|VAR) varlist COLON typ values;
+	:(VAL|VAR) varlist COLON typ values SM;
 
+// value :'= list of values | empyt'
 values
-	:vals| ;
-
+	:valus| ;
 
 varlist
 	: var_item CM varlist 
@@ -61,11 +63,27 @@ typ
 	: BOOLEAN_TYP
 	| INT_TYP
 	| FLOAT_TYP
+	| STRING_TYP
 	;
 
+valus: '=' list_of_value ;
+ 
+ // list of value assign to variable
+list_of_value:
+	// : expression
+	| integer_literal
+	| FLOAT_LITERAL
+	| BOOLEAN_LITERAL
+	| STRING_LITERAL;
 
 
-
+// integer literal
+integer_literal
+	: INTEGER_LITERAL_X10
+	| INTEGER_LITERAL_X16
+	| INTEGER_LITERAL_X8
+	| INTEGER_LITERAL_X2
+	;
 
 
 // token Literals
@@ -185,6 +203,8 @@ typ
 	BOOLEAN_TYP:'Boolean';
 	INT_TYP:'Int';
 	FLOAT_TYP:'Float';
+	STRING_TYP:'String';
+	
 
 	IDENTIFIER:[A-Za-z_]+ [A-Za-z_0-9]* ;
 	CLASSNAME:[A-Za-z_]+ [A-Za-z_0-9]* ;
@@ -195,18 +215,24 @@ typ
 WS: [ \t\r\n]+ -> skip; // skip spaces, tabs, newlines
 
 
+// UNCLOSE_STRING
+// 	: '"' CHARACTER* END_A_LINE_SIGN
+// 	{
+// 		unclose_string = str(self.text)
+// 		end_sign=['\b', '\t', '\n', '\f', '\r', '"', "'", '\\']
+// 		i=len(a)
+// 		if unclose_string[i-1] in end_sign:
+// 			raise UncloseString(unclose_string[1:-1])
+// 		else:
+// 			raise UncloseString(unclose_string[1:])
+// 	}
+// 	;
 UNCLOSE_STRING
-	: '"' CHARACTER* END_A_LINE_SIGN
-	{
-		unclose_string = str(self.text)
-		end_sign=['\b', '\t', '\n', '\f', '\r', '"', "'", '\\']
-		i=len(a)
-		if unclose_string[i-1] in end_sign:
-			raise UncloseString(unclose_string[1:-1])
-		else:
-			raise UncloseString(unclose_string[1:])
-	}
-	;
+	: '"' CHARACTER* END_A_LINE_SIGN 
+	{ 
+		unclose_str=str(self.text)
+		raise UncloseString(unclose_str[1:])
+	};
 
 fragment END_A_LINE_SIGN
 	: [\b\t\n\f\r"'\\] | EOF
