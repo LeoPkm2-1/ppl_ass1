@@ -1,5 +1,8 @@
 
             Class c{
+                Var a,b,c:Int;
+                Val e,c,d:Float;
+                Var $r,t:Array[Boolean,3]=Array(True,False,True);
                 Var a,b,c: Array[
                     Array[Int,2],3]=Array( Array(
                         Array(
@@ -8,5 +11,7 @@
                             )
                         ),Array(5,6)
                     ),Array(3,4),Array(5,6)  )   ;
+                
+                ahihi(a,b:Int;e,f,g:Array[Int,5]){}
             }
         

@@ -32,74 +32,201 @@ classbody: classelements| ;
 classelements: classelement classelements| classelement;
 
 // class element = vardecl or functiondecl
-classelement: COMMENT |attributedecl;//|methoddecl;
+classelement: COMMENT |attributedecl|methoddecl;
+
+// khai báo hàm
+//funcname:STATIC_IDENTIFIER|IDENTIFIER;
+methoddecl:norm_methoddecl|constructor_methoddecl|destructor_methoddecl;
+norm_methoddecl:(STATIC_IDENTIFIER|IDENTIFIER) LP paramlist RP LB con_des_functionbody RB;
+constructor_methoddecl:CONSTRUCTOR_KEY LP paramlist RP LB con_des_functionbody RB;
+destructor_methoddecl:DESTRUCTOR_KEY LP RP LB con_des_functionbody RB;
+
+con_des_functionbody: stmts| ;
+
+stmts: stmt stmts| stmt;
+
+stmt: funcvardecl
+	|COMMENT;
 
 
-attributedecl: attribute_key_decl var_list COLON var_typ_and_inital SM;
+paramlist: paramlsts| ;
+paramlsts:paralst SM paramlsts| paralst;
+paralst: IDENTIFIER( CM IDENTIFIER)* COLON paramtyp;
+paramtyp:primityp|arrtyp|IDENTIFIER;	//
+primityp
+	:'Boolean'
+	|'Int'
+	|'Float'
+	|'String';
+arrtyp
+	:index_arr_typ
+	|multi_dimension_arr_typ;
+functionbody:'functionbody'| ;
+
+// khai báo bien
+attributedecl: var_key_dec attribute_list COLON var_typ_and_inital SM;
+funcvardecl: var_key_dec var_list COLON var_typ_and_inital SM;
 
 
-
-attribute_key_decl
+var_key_dec
 	: VAR
 	| VAL;
 
-var_list: var_name CM var_list| var_name;
-
-var_name: IDENTIFIER|STATIC_IDENTIFIER;
+attribute_list: attibute_name CM attribute_list| attibute_name;
+var_list:IDENTIFIER CM var_list| IDENTIFIER;
+attibute_name: IDENTIFIER|STATIC_IDENTIFIER;
 
 var_typ_and_inital: primitive_typ_and_inital| array_typ_and_inital;// array_typ_and_inital;
 
-array_typ_and_inital:arr_index_inital|arr_multi_dimension_inital;
 
-arr_multi_dimension_inital:ARRAY LP(arr_multi_dimension_inital|) RP;
-multi_dimension_arr_typ: ARRAY LSB (multi_dimension_arr_typ|index_arr_typ) CM integer_literal RSB;
+// expression:
+expr
+	: expr1 str_op expr1
+	|expr1;
+expr1
+	:expr2 comp_op expr2
+	|expr2;
 
-arr_index_inital
-	:arr_index_int_list_inital
-	|arr_index_bool_list_inital
-	|arr_index_float_list_inital
-	|arr_index_string_list_inital;
+expr2
+	:expr2 logic_op expr3
+	|expr3;
 
-index_arr_typ
-	:index_arr_int_typ
-	|index_arr_bool_typ
-	|index_arr_float_typ
-	|index_arr_string_typ;
+expr3
+	: expr3 add_sub_op expr4
+	|expr4;
 
-index_arr_int_typ: ARRAY LSB INT_TYP CM integer_literal RSB;
-index_arr_bool_typ: ARRAY LSB BOOLEAN_TYP CM integer_literal RSB;
-index_arr_float_typ: ARRAY LSB FLOAT_TYP CM integer_literal RSB;
-index_arr_string_typ:ARRAY LSB STRING_TYP CM integer_literal RSB;
+expr4
+	:expr4 mul_divs_op expr5
+	|expr5;
 
-arr_index_int_list_inital: index_arr_int_typ arr_index_int_initals;
+expr5
+	: NOT_OP expr5
+	|expr6 ;
 
-arr_index_int_initals: EQUALSIGN arr_index_int_initals_values| ;
-arr_index_int_initals_values:index_array_int_literal CM arr_index_int_initals_values| index_array_int_literal;
+expr6
+	: SUB_OP expr6
+	|expr7;
+
+expr7
+	: expr7 index_op_arr
+	| expr8 ;
+
+index_op_arr
+	: LSB expr RSB index_op_arr
+	| LSB expr RSB;
+
+expr8
+	:expr8 DOT_OP expr9
+	|expr9;
+
+expr9
+	: expr10 STATIC_ACCESS expr10
+	|expr10;
+
+expr10
+	: NEW_OP expr10
+	|expr11;
+
+expr11: LP expr RB|expr12;
+
+expr12
+	: operand;
+
+operand
+	: IDENTIFIER
+	| STATIC_IDENTIFIER
+	| integer_literal
+	| FLOAT_LITERAL
+	| BOOLEAN_LITERAL
+	| STRING_LITERAL
+	| call_function
+	|SELF;
+
+call_function:(STATIC_IDENTIFIER| IDENTIFIER) LP (expr(CM expr)*)* RP;
 
 
-// ======================================================================
 
-arr_index_bool_list_inital: index_arr_bool_typ arr_index_bool_initals;
+str_op:(STR_COMP_OP| STR_CONCAT_OP);
+comp_op:(EQ_COMP_OP|DIFF_COMP_OP|SMALL_COMP_OP|LARGE_COMP_OP|SMALL_EQ_COMP_OP|LARGE_EQ_COMP_OP);
+logic_op:AND_LOGIC_OP|OR_LOGIC_OP;
+add_sub_op:(ADD_OP|SUB_OP);
+mul_divs_op:MUL_OP|DIV_OP|MODULO_OP;
+// array type and array value=================================================================
+	array_typ_and_inital:arr_index_inital|arr_multi_dimension_inital;
 
-arr_index_bool_initals: EQUALSIGN arr_index_bool_initals_values| ;
-arr_index_bool_initals_values:index_array_bool_literal CM arr_index_bool_initals_values| index_array_bool_literal;
+		// array multi inital list==========================================================
+			arr_multi_dimension_inital
+				:multi_dimension_arr_typ arr_multi_dimension_initals;
+
+			arr_multi_dimension_initals
+				: EQUALSIGN arr_multi_dimension_initals_values| ;
+
+			arr_multi_dimension_initals_values
+				: multi_dimension_array_literal CM arr_multi_dimension_initals_values 
+				| multi_dimension_array_literal;
+
+			// arr multi dimesion typ=======================================================
+				multi_dimension_arr_typ: ARRAY LSB multi_dimension_arr_elem_typ CM integer_literal RSB;
+				// multi_dimension_arr_elems_typ: (multi_dimension_arr_elem_typ) multi_dimension_arr_elems_typ;
+				multi_dimension_arr_elem_typ: multi_dimension_arr_typ|index_arr_typ; 
+			//=============================================================================
 
 
-// ======================================================================
+		
 
-arr_index_float_list_inital: index_arr_float_typ arr_index_float_initals;
-
-arr_index_float_initals: EQUALSIGN arr_index_float_initals_values| ;
-arr_index_float_initals_values:index_array_float_literal CM arr_index_float_initals_values| index_array_float_literal;
+		// ========================================================================
 
 
-// ======================================================================
+		// array index inital list
+			arr_index_inital
+				:arr_index_int_list_inital
+				|arr_index_bool_list_inital
+				|arr_index_float_list_inital
+				|arr_index_string_list_inital;
 
-arr_index_string_list_inital: index_arr_string_typ arr_index_string_initals;
+			// index array==============================================================
 
-arr_index_string_initals: EQUALSIGN arr_index_string_initals_values| ;
-arr_index_string_initals_values:index_array_string_literal CM arr_index_string_initals_values| index_array_string_literal;
+			index_arr_typ
+				:index_arr_int_typ
+				|index_arr_bool_typ
+				|index_arr_float_typ
+				|index_arr_string_typ;
 
+				// index arr typ=======================================
+				index_arr_int_typ: ARRAY LSB INT_TYP CM integer_literal RSB;
+				index_arr_bool_typ: ARRAY LSB BOOLEAN_TYP CM integer_literal RSB;
+				index_arr_float_typ: ARRAY LSB FLOAT_TYP CM integer_literal RSB;
+				index_arr_string_typ:ARRAY LSB STRING_TYP CM integer_literal RSB;
+				//=========================================================
+
+				// index arr int value ================================================
+				arr_index_int_list_inital: index_arr_int_typ arr_index_int_initals;
+				arr_index_int_initals: EQUALSIGN arr_index_int_initals_values| ;
+				arr_index_int_initals_values:index_array_int_literal CM arr_index_int_initals_values| index_array_int_literal;
+				// ====================================================================
+
+			
+				// index arr bool value ================================================
+				arr_index_bool_list_inital: index_arr_bool_typ arr_index_bool_initals;
+				arr_index_bool_initals: EQUALSIGN arr_index_bool_initals_values| ;
+				arr_index_bool_initals_values:index_array_bool_literal CM arr_index_bool_initals_values| index_array_bool_literal;
+				// =======================================================================
+
+				// index arr bool value ================================================
+				arr_index_float_list_inital: index_arr_float_typ arr_index_float_initals;
+				arr_index_float_initals: EQUALSIGN arr_index_float_initals_values| ;
+				arr_index_float_initals_values:index_array_float_literal CM arr_index_float_initals_values| index_array_float_literal;
+				// ==============================================================
+
+			
+				// index arr string value ================================================
+				arr_index_string_list_inital: index_arr_string_typ arr_index_string_initals;
+				arr_index_string_initals: EQUALSIGN arr_index_string_initals_values| ;
+				arr_index_string_initals_values:index_array_string_literal CM arr_index_string_initals_values| index_array_string_literal;
+				// ======================================================================
+
+
+			//================================================================================================================
 
 // ======================================================================
 
@@ -119,7 +246,7 @@ primitive_typ_and_inital
 
 		int_values_init: int_value_init CM int_values_init | int_value_init;
 
-		int_value_init: IDENTIFIER|STATIC_IDENTIFIER|integer_literal; // insert int expresion
+		int_value_init: IDENTIFIER|STATIC_IDENTIFIER|integer_literal|expr; // insert int expresion
 
 
 		// bool intial list_intial
@@ -129,7 +256,7 @@ primitive_typ_and_inital
 
 		bool_values_init: bool_value_init CM bool_values_init | bool_value_init;
 
-		bool_value_init	: IDENTIFIER| STATIC_IDENTIFIER	| BOOLEAN_LITERAL; // insert bool expresion
+		bool_value_init	: IDENTIFIER| STATIC_IDENTIFIER	| BOOLEAN_LITERAL|expr; // insert bool expresion
 
 		// float intial list_intial
 		attribute_float_list_intial: FLOAT_TYP float_values_inital;
@@ -138,7 +265,7 @@ primitive_typ_and_inital
 
 		float_values_init: float_value_init CM float_values_init | float_value_init;
 
-		float_value_init: IDENTIFIER|STATIC_IDENTIFIER|FLOAT_LITERAL; // insert float expresion
+		float_value_init: IDENTIFIER|STATIC_IDENTIFIER|FLOAT_LITERAL|expr; // insert float expresion
 
 
 		// string intial list_intial
@@ -148,7 +275,7 @@ primitive_typ_and_inital
 
 		string_values_init: string_value_init CM string_values_init | string_value_init;
 
-		string_value_init: IDENTIFIER|STATIC_IDENTIFIER|STRING_LITERAL; // insert string expresion
+		string_value_init: IDENTIFIER|STATIC_IDENTIFIER|STRING_LITERAL|expr; // insert string expresion
 
 
 // integer literal
@@ -287,12 +414,34 @@ LSB:'[';
 RSB:']';
 SM:';';
 CM:',';
+SELF:'Self';
 COLON:':';
 EQUALSIGN:'=';
+STR_COMP_OP:'==.';
+STR_CONCAT_OP:'+.';
+EQ_COMP_OP:'==';
+DIFF_COMP_OP:'!=';
+SMALL_COMP_OP:'<';
+LARGE_COMP_OP:'>';
+SMALL_EQ_COMP_OP:'<=';
+LARGE_EQ_COMP_OP:'>=';
+AND_LOGIC_OP:'&&';
+OR_LOGIC_OP:'||';
+ADD_OP:'+';
+SUB_OP:'-';
+MUL_OP:'*';
+DIV_OP:'/';
+MODULO_OP:'%';
+NOT_OP:'!';
+DOT_OP:'.';
+STATIC_ACCESS:'::';
+NEW_OP:'New';
 BOOLEAN_TYP:'Boolean';
 INT_TYP:'Int';
 FLOAT_TYP:'Float';
 STRING_TYP:'String';
+CONSTRUCTOR_KEY:'Constructor';
+DESTRUCTOR_KEY:'Destructor';
 IDENTIFIER:([A-Za-z]|'_')+ ([A-Za-z0-9]|'_')* ;
 fragment DOLAR_SIGN:'$';
 STATIC_IDENTIFIER: DOLAR_SIGN [A-Za-z_]+ [A-Za-z_0-9]* ;

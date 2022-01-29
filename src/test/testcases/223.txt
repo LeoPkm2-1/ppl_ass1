@@ -1,0 +1,6 @@
+
+            Class c{
+                               
+                ahihi(a:Array[Array[Array[Int,10],5],3];e:Array[Int,5]){}
+            }
+        

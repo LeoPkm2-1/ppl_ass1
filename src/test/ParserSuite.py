@@ -216,22 +216,175 @@ class ParserSuite(unittest.TestCase):
         expect="successful"
         self.assertTrue(TestParser.test(input,expect,217))
 
-
     def test_class_with_arr2(self):
         """test_class_with_arr"""
         input="""
             Class c{
-                Var a,b,c: Array[Array[int,1],5]=Array(
-                    Array(12),
-                    Array(1),
-                    Array(a),
-                    Array($sa),
-                    Array(012)
-                );
-                Var a,b,c: Array[Boolean,5]=Array(True,False,True);
-                Var a,b,c: Array[Float,5]=Array(1.0,0.,1e342,1.432,1.42e+424,afsa3);
-                Var a,b,c: Array[String,5]=Array("fdsa fsjlk ","fdsaj",afsd,$fsad);
+                Var a,b,c: Array[
+                    Array[Int,2],3]=Array( Array(
+                        Array(
+                            Array(3,4),Array(
+                                Array(3,4),Array(5,6)
+                            )
+                        ),Array(5,6)
+                    ),Array(3,4),Array(5,6)  )   ;
             }
         """
         expect="successful"
         self.assertTrue(TestParser.test(input,expect,218))
+
+    def test_method_nobody1(self):
+        """test_method_nobody1 """
+        input="""
+            Class c{
+                Var a,b,c:Int;
+                Val e,c,d:Float;
+                Var $r,t:Array[Boolean,3]=Array(True,False,True);
+                Var a,b,c: Array[
+                    Array[Int,2],3]=Array( Array(
+                        Array(
+                            Array(3,4),Array(
+                                Array(3,4),Array(5,6)
+                            )
+                        ),Array(5,6)
+                    ),Array(3,4),Array(5,6)  )   ;
+                
+                ahihi(){}
+            }
+        """
+        expect="successful"
+        self.assertTrue(TestParser.test(input,expect,219))
+
+    def test_method_nobody2(self):
+        """test_method_nobody1 """
+        input="""
+            Class c{
+                Var a,b,c:Int;
+                Val e,c,d:Float;
+                Var $r,t:Array[Boolean,3]=Array(True,False,True);
+                Var a,b,c: Array[
+                    Array[Int,2],3]=Array( Array(
+                        Array(
+                            Array(3,4),Array(
+                                Array(3,4),Array(5,6)
+                            )
+                        ),Array(5,6)
+                    ),Array(3,4),Array(5,6)  )   ;
+                
+                ahihi(a,b:Int){}
+            }
+        """
+        expect="successful"
+        self.assertTrue(TestParser.test(input,expect,220))
+
+    def test_method_nobody3(self):
+        """test_method_nobody3 """
+        input="""
+            Class c{
+                Var a,b,c:Int=10,A,Car::$c;
+                Val e,c,d:Float;
+                Var d,e:String="ahihi","ahaihi"+."hehe";
+                Var $r,t:Array[Boolean,3]=Array(True,False,True);
+                Var a,b,c: Array[
+                    Array[Int,2],3]=Array( Array(
+                        Array(
+                            Array(3,4),Array(
+                                Array(3,4),Array(5,6)
+                            )
+                        ),Array(5,6)
+                    ),Array(3,4),Array(5,6)  )   ;
+                
+                ahihi(a,b:Int;c,d:Float){}
+            }
+        """
+        expect="successful"
+        self.assertTrue(TestParser.test(input,expect,221))
+
+    def test_method_nobody4(self):
+        """test_method_nobody4 """
+        input="""
+            Class c{
+                Var a,b,c:Int;
+                Val e,c,d:Float;
+                Var $r,t:Array[Boolean,3]=Array(True,False,True);
+                Var a,b,c: Array[
+                    Array[Int,2],3]=Array( Array(
+                        Array(
+                            Array(3,4),Array(
+                                Array(3,4),Array(5,6)
+                            )
+                        ),Array(5,6)
+                    ),Array(3,4),Array(5,6)  )   ;
+                
+                ahihi(a,b:Int;e,f,g:Array[Int,5]){}
+            }
+        """
+        expect="successful"
+        self.assertTrue(TestParser.test(input,expect,222))
+
+    def test_method_nobody5(self):
+        """test_method_nobody5 """
+        input="""
+            Class c{
+                               
+                ahihi(a:Array[Array[Array[Int,10],5],3];e:Array[Int,5]){}
+            }
+        """
+        expect="successful"
+        self.assertTrue(TestParser.test(input,expect,223))
+
+    def test_method_nobody6(self):
+        """test_method_nobody6 """
+        input="""
+            Class c{
+                               
+                ahihi(a:Array[Array[Array[Int,10],5],3];e:ahihi){}
+            }
+        """
+        expect="successful"
+        self.assertTrue(TestParser.test(input,expect,224))
+
+    def te(self):
+        """test_temp """
+        input="""
+            Class c{
+                               
+                ## Car::$funct(1,2,3)##
+                Car.$ahihi
+
+            }
+        """
+        expect="successful"
+        self.assertTrue(TestParser.test(input,expect,225))
+
+    # def test_class_with_arr2(self):
+    #     """test_class_with_arr"""
+    #     input="""
+    #         Class c{
+    #             Var a,b,c: Array[Array[Int,1],5];
+    #             Var a,b,c: Array[Boolean,5]=Array(True,False,True);
+    #             Var a,b,c: Array[Float,5]=Array(1.0,0.,1e342,1.432,1.42e+424,afsa3);
+    #             Var a,b,c: Array[String,5]=Array("fdsa fsjlk ","fdsaj",afsd,$fsad);
+    #         }
+    #     """
+    #     expect="successful"
+    #     self.assertTrue(TestParser.test(input,expect,218))
+
+    # def test_class_with_arr2(self):
+    #     """test_class_with_arr"""
+    #     input="""
+    #         Class c{
+    #             Var a,b,c: Array[Array[int,1],5]=Array(
+    #                 Array(12),
+    #                 Array(1),
+    #                 Array(a),
+    #                 Array($sa),
+    #                 Array(012)
+    #             );
+    #             Var a,b,c: Array[Boolean,5]=Array(True,False,True);
+    #             Var a,b,c: Array[Float,5]=Array(1.0,0.,1e342,1.432,1.42e+424,afsa3);
+    #             Var a,b,c: Array[String,5]=Array("fdsa fsjlk ","fdsaj",afsd,$fsad);
+    #         }
+    #     """
+    #     expect="successful"
+    #     self.assertTrue(TestParser.test(input,expect,218))
