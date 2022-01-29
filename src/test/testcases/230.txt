@@ -1,0 +1,23 @@
+
+            Class Car{
+                getcolor(){
+                    If(color == Blue){
+                        Var x:Int=5;
+                    }
+                    Elseif(Self.chocolate==."Black"){
+
+                    }
+                    Elseif(Self.chocolate==."Black"){
+                        ## ahaihi xin chao ##
+                        Var a:Array[Int,5];
+                        a[1]=2;
+                        a[2]=435;
+                        a[3]=10.0;
+                    }
+                    Else{
+                        Dog::$number=100*2;
+                    }
+                }
+            }
+        
+        

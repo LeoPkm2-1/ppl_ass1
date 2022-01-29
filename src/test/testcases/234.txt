@@ -1,0 +1,12 @@
+
+        Class Vehicle{
+            Var $number:Int =0x0;
+        }
+        Class Me  {
+            Var car:Vehicle= New Vehicle();
+        }
+
+        
+
+
+        

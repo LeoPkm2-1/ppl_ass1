@@ -1,0 +1,13 @@
+
+            Class Car{
+                getcolor(){
+                    If(color == Blue){
+                        Var x:Int=5;
+                    }
+                    Else{
+                        Dog::$number=100*2;
+                    }
+                }
+            }
+        
+        

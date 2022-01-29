@@ -37,16 +37,32 @@ classelement: COMMENT |attributedecl|methoddecl;
 // khai báo hàm
 //funcname:STATIC_IDENTIFIER|IDENTIFIER;
 methoddecl:norm_methoddecl|constructor_methoddecl|destructor_methoddecl;
-norm_methoddecl:(STATIC_IDENTIFIER|IDENTIFIER) LP paramlist RP LB con_des_functionbody RB;
+norm_methoddecl:(STATIC_IDENTIFIER|IDENTIFIER) LP paramlist RP LB normal_functionbody RB;
 constructor_methoddecl:CONSTRUCTOR_KEY LP paramlist RP LB con_des_functionbody RB;
 destructor_methoddecl:DESTRUCTOR_KEY LP RP LB con_des_functionbody RB;
+
+normal_functionbody: normbodystmt*;
+
+normbodystmt: funcvardecl
+	|assign_stmt
+	| if_stmt
+	| for_stmt
+	| COMMENT
+	| block_stmts
+	| return_stmt;
 
 con_des_functionbody: stmts| ;
 
 stmts: stmt stmts| stmt;
 
 stmt: funcvardecl
-	|COMMENT;
+	|assign_stmt
+	| if_stmt
+	| for_stmt
+	| expr SM
+	| COMMENT
+	| block_stmts;
+
 
 
 paramlist: paramlsts| ;
@@ -78,7 +94,32 @@ attibute_name: IDENTIFIER|STATIC_IDENTIFIER;
 
 var_typ_and_inital: primitive_typ_and_inital| array_typ_and_inital;// array_typ_and_inital;
 
+// lenh gan gia tri
+assign_stmt: assign_lhs EQUALSIGN expr SM;
+assign_lhs:IDENTIFIER
+	|SELF DOT_OP IDENTIFIER
+	|IDENTIFIER DOT_OP IDENTIFIER
+	|SELF STATIC_ACCESS IDENTIFIER
+	|IDENTIFIER STATIC_ACCESS STATIC_IDENTIFIER
+	|array_element;
 
+array_element:expr7;
+if_stmt: if_clause (elseif_clause)* (else_clause)?;
+if_clause: IF bool_expr if_block_statment;
+elseif_clause:ELSEIF bool_expr if_block_statment;
+else_clause: ELSE if_block_statment;
+
+
+bool_expr: LP expr RP;
+if_block_statment: LB stmt* RB;
+
+loops: for_stmt loops| for_stmt;
+for_stmt: FOR LP assign_lhs IN integer_literal RANGE_OP integer_literal (BY integer_literal)?  RP LB loopsmt* RB;
+loopsmt: stmt| BREAK SM| CONTINUE SM;
+
+return_stmt:RETURN expr SM;
+
+block_stmts: LB stmt* RB;
 // expression:
 expr
 	: expr1 str_op expr1
@@ -127,7 +168,7 @@ expr10
 	: NEW_OP expr10
 	|expr11;
 
-expr11: LP expr RB|expr12;
+expr11: LP expr?? RB|expr12;
 
 expr12
 	: operand;
@@ -415,7 +456,17 @@ RSB:']';
 SM:';';
 CM:',';
 SELF:'Self';
+IF:'If';
+IN:'In';
+BY:'By';
+FOR:'Foreach';
+ELSEIF:'Elseif';
+ELSE:'Else';
+BREAK:'Break';
+RANGE_OP:'..';
+CONTINUE:'Continue';
 COLON:':';
+RETURN: 'Return';
 EQUALSIGN:'=';
 STR_COMP_OP:'==.';
 STR_CONCAT_OP:'+.';

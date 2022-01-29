@@ -10,7 +10,9 @@
                     Var a:Int=Red.color;
                 Val e: Array[Array[Int,1],1];
                 Val st: Array[Array[Int,1],1];
-
+                a=10;
+                FOrd::$number=5;
+                FOrd.color=Blue;
                     
 
                 }

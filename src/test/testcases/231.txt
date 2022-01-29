@@ -1,0 +1,16 @@
+
+            Class Car{
+                getcolor(){
+                    If(color == Blue){
+                        If(False){
+                            Foreach(a In 4 .. 100){
+                                Var a: Int =4;
+                                Out.Print("ahihi");
+                                Self.a=10;
+                            }
+                        }
+                    }
+                }
+            }
+        
+        

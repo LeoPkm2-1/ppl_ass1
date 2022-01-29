@@ -64,6 +64,16 @@ class D96Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by D96Parser#normal_functionbody.
+    def visitNormal_functionbody(self, ctx:D96Parser.Normal_functionbodyContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#normbodystmt.
+    def visitNormbodystmt(self, ctx:D96Parser.NormbodystmtContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by D96Parser#con_des_functionbody.
     def visitCon_des_functionbody(self, ctx:D96Parser.Con_des_functionbodyContext):
         return self.visitChildren(ctx)
@@ -146,6 +156,76 @@ class D96Visitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by D96Parser#var_typ_and_inital.
     def visitVar_typ_and_inital(self, ctx:D96Parser.Var_typ_and_initalContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#assign_stmt.
+    def visitAssign_stmt(self, ctx:D96Parser.Assign_stmtContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#assign_lhs.
+    def visitAssign_lhs(self, ctx:D96Parser.Assign_lhsContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#array_element.
+    def visitArray_element(self, ctx:D96Parser.Array_elementContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#if_stmt.
+    def visitIf_stmt(self, ctx:D96Parser.If_stmtContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#if_clause.
+    def visitIf_clause(self, ctx:D96Parser.If_clauseContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#elseif_clause.
+    def visitElseif_clause(self, ctx:D96Parser.Elseif_clauseContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#else_clause.
+    def visitElse_clause(self, ctx:D96Parser.Else_clauseContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#bool_expr.
+    def visitBool_expr(self, ctx:D96Parser.Bool_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#if_block_statment.
+    def visitIf_block_statment(self, ctx:D96Parser.If_block_statmentContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#loops.
+    def visitLoops(self, ctx:D96Parser.LoopsContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#for_stmt.
+    def visitFor_stmt(self, ctx:D96Parser.For_stmtContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#loopsmt.
+    def visitLoopsmt(self, ctx:D96Parser.LoopsmtContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#return_stmt.
+    def visitReturn_stmt(self, ctx:D96Parser.Return_stmtContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#block_stmts.
+    def visitBlock_stmts(self, ctx:D96Parser.Block_stmtsContext):
         return self.visitChildren(ctx)
 
 

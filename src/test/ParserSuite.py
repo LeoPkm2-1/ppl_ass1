@@ -344,18 +344,199 @@ class ParserSuite(unittest.TestCase):
         expect="successful"
         self.assertTrue(TestParser.test(input,expect,224))
 
-    def te(self):
-        """test_temp """
+    def test_method_with_vardecl(self):
+        """test_method_with_vardecl"""
         input="""
-            Class c{
-                               
-                ## Car::$funct(1,2,3)##
-                Car.$ahihi
+            Class Car{
+                Var a:Int=Red.color;
+                Val e: Array[Array[Int,1],1];
+                Val $st: Array[Array[Int,1],1];
 
+                Var d: Array[Array[Int,1],1]=Array(Array(100));
+
+                getColor(){
+                    Var a:Int=Red.color;
+                Val e: Array[Array[Int,1],1];
+                Val st: Array[Array[Int,1],1];
+
+                    
+
+                }
             }
         """
         expect="successful"
         self.assertTrue(TestParser.test(input,expect,225))
+
+
+    def test_method_with_assignstament(self):
+        """test_method_with_assignstament"""
+        input="""
+            Class Car{
+                Var a:Int=Red.color;
+                Val e: Array[Array[Int,1],1];
+                Val $st: Array[Array[Int,1],1];
+
+                Var d: Array[Array[Int,1],1]=Array(Array(100));
+
+                getColor(){
+                    Var a:Int=Red.color;
+                Val e: Array[Array[Int,1],1];
+                Val st: Array[Array[Int,1],1];
+                a=10;
+                FOrd::$number=5;
+                FOrd.color=Blue;
+                    
+
+                }
+            }
+        """
+        expect="successful"
+        self.assertTrue(TestParser.test(input,expect,226))
+
+    def test_method_with_if(self):
+        """test_method_with_if"""
+        input="""
+            Class Car{
+                getcolor(){
+                    If(color == Blue){
+                        Var x:Int=5;
+                    }
+                }
+            }
+        
+        """
+        expect="successful"
+        self.assertTrue(TestParser.test(input,expect,227))
+
+    def test_method_with_if_else(self):
+        """test_method_with_if"""
+        input="""
+            Class Car{
+                getcolor(){
+                    If(color == Blue){
+                        Var x:Int=5;
+                    }
+                    Else{
+                        Dog::$number=100*2;
+                    }
+                }
+            }
+        
+        """
+        expect="successful"
+        self.assertTrue(TestParser.test(input,expect,228))
+
+    def test_method_with_if_elseif_else(self):
+        """test_method_with_if_elseif_else"""
+        input="""
+            Class Car{
+                getcolor(){
+                    If(color == Blue){
+                        Var x:Int=5;
+                    }
+                    Elseif(Self.chocolate==."Black"){
+
+                    }
+                    Else{
+                        Dog::$number=100*2;
+                    }
+                }
+            }
+        
+        """
+        expect="successful"
+        self.assertTrue(TestParser.test(input,expect,229))
+
+    def test_method_with_if_elseifs_else(self):
+        """test_method_with_if_elseifs_else"""
+        input="""
+            Class Car{
+                getcolor(){
+                    If(color == Blue){
+                        Var x:Int=5;
+                    }
+                    Elseif(Self.chocolate==."Black"){
+
+                    }
+                    Elseif(Self.chocolate==."Black"){
+                        ## ahaihi xin chao ##
+                        Var a:Array[Int,5];
+                        a[1]=2;
+                        a[2]=435;
+                        a[3]=10.0;
+                    }
+                    Else{
+                        Dog::$number=100*2;
+                    }
+                }
+            }
+        
+        """
+        expect="successful"
+        self.assertTrue(TestParser.test(input,expect,230))
+
+    def test_method_with_if_nested(self):
+        """test_method_with_if_nested"""
+        input="""
+            Class Car{
+                getcolor(){
+                    If(color == Blue){
+                        If(False){
+                            Foreach(a In 4 .. 100){
+                                Var a: Int =4;
+                                Out.Print("ahihi");
+                                Self.a=10;
+                            }
+                        }
+                    }
+                }
+            }
+        
+        """
+        expect="successful"
+        self.assertTrue(TestParser.test(input,expect,231))
+
+
+    def test_function_with_return(self):
+        """test_function_with_return"""
+        input = """
+        Class Rectangle {
+            getArea() {
+                Return Self.length * Self.width;
+            }
+        }
+        """
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 232))
+    
+    def test_class_with_parent_class(self):
+        """test_class_with_parent_class"""
+        input = """
+        Class CAR:Vehicle  {
+            
+        }
+        """
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 233))
+
+    def test_class_with_New_op(self):
+        """test_class_with_New_op"""
+        input = """
+        Class Vehicle{
+            Var $number:Int =0x0;
+        }
+        Class Me  {
+            Var car:Vehicle= New Vehicle();
+        }
+
+        
+
+
+        """
+        expect = "successful"
+        self.assertTrue(TestParser.test(input, expect, 234))
+
+
 
     # def test_class_with_arr2(self):
     #     """test_class_with_arr"""
